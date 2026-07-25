@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://giuliatringali.github.io/sitemap.xml
+Sitemap: https://giuliatringali.github.iogiulia_tringali/sitemap.xml
