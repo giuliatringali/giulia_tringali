@@ -6,7 +6,7 @@ subtitle: <a href='#'>Sapienza University | IPSC </a>. giulia.tringali@uniroma1.
 
 profile:
   align: right
-  image: 
+  image: profile_pic.jpg 
   image_circular: false # crops the image to make it circular
   
 
