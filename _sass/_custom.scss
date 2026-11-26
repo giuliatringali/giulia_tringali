@@ -1,0 +1,397 @@
+/*******************************************************************************
+ * Custom look: forest theme, justified text, publications, talks, passions.
+ ******************************************************************************/
+
+$serif: 'Lora', Georgia, serif;
+
+::selection {
+  background: var(--global-hover-color);
+  color: #fff;
+}
+
+// ---------- Typography -------------------------------------------------------
+
+body {
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: $serif;
+}
+
+article p,
+article li,
+.pub-abstract {
+  text-align: justify;
+  hyphens: auto;
+}
+
+// Page title with a small leaf rule underneath
+.post-header {
+  margin-bottom: 2rem;
+
+  .post-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin-top: 0.6rem;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--global-theme-color), var(--global-hover-color));
+  }
+}
+
+// Section titles inside pages
+article h2 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--global-theme-color);
+}
+
+// Links: soft underline that grows on hover
+article a:not(.pub-btn):not(.btn) {
+  text-decoration: none;
+  background-image: linear-gradient(var(--global-hover-color), var(--global-hover-color));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease;
+
+  &:hover {
+    text-decoration: none;
+    background-size: 100% 1px;
+  }
+}
+
+hr {
+  border: 0;
+  text-align: center;
+  margin: 2.5rem 0;
+
+  &::before {
+    content: "· 🌿 ·";
+    color: var(--global-theme-color);
+    letter-spacing: 0.5rem;
+  }
+}
+
+// ---------- Navbar & profile -------------------------------------------------
+
+.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  position: relative;
+  letter-spacing: 0.02em;
+}
+
+.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  font-weight: 500;
+}
+
+.profile img {
+  box-shadow: 0 0 0 4px var(--global-bg-color), 0 0 0 6px var(--global-hover-color) !important;
+}
+
+// ---------- Social icons: small round buttons --------------------------------
+
+.social {
+  margin-top: 2.5rem;
+
+  .contact-icons {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.3rem;
+      height: 2.3rem;
+      border-radius: 50%;
+      border: 1px solid var(--global-divider-color);
+      transition: all 0.2s ease;
+
+      i::before {
+        color: var(--global-theme-color);
+      }
+
+      &:hover {
+        background: var(--global-theme-color);
+        border-color: var(--global-theme-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+
+        i::before {
+          color: var(--global-bg-color);
+        }
+      }
+    }
+  }
+}
+
+// ---------- Publications -----------------------------------------------------
+
+.pub {
+  position: relative;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(27, 58, 36, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .pub-tag {
+    float: right;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--global-theme-color);
+    background: var(--global-accent-soft);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+  }
+
+  .pub-title {
+    font-family: $serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+
+  .pub-authors,
+  .pub-venue {
+    font-size: 0.9rem;
+    color: var(--global-text-color-light);
+  }
+
+  .pub-venue {
+    font-style: italic;
+  }
+
+  .pub-links {
+    margin-top: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+
+  .pub-btn,
+  details > summary {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.7rem;
+    border: 1px solid var(--global-theme-color);
+    border-radius: 999px;
+    color: var(--global-theme-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    list-style: none;
+
+    &:hover {
+      background: var(--global-theme-color);
+      color: var(--global-bg-color);
+      text-decoration: none;
+    }
+  }
+
+  details {
+    > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    &[open] {
+      flex-basis: 100%;
+    }
+
+    &[open] > summary {
+      background: var(--global-theme-color);
+      color: var(--global-bg-color);
+    }
+  }
+
+  .pub-abstract {
+    margin-top: 0.6rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.92rem;
+    background: var(--global-accent-soft);
+    border-radius: 6px;
+    animation: fadeIn 0.25s ease;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+// Non-academic writing list
+.press-list {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed var(--global-divider-color);
+    text-align: left;
+
+    &::before {
+      content: "\f1ea"; // newspaper icon
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      color: var(--global-theme-color);
+      margin-right: 0.7rem;
+    }
+  }
+}
+
+// ---------- Talks table ------------------------------------------------------
+
+.talks-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  margin-bottom: 1.5rem;
+
+  th {
+    font-family: $serif;
+    font-weight: 600;
+    text-align: left;
+    color: var(--global-theme-color);
+    border-bottom: 2px solid var(--global-theme-color);
+    padding: 0.5rem 0.6rem;
+  }
+
+  td {
+    padding: 0.6rem;
+    border-bottom: 1px solid var(--global-divider-color);
+    vertical-align: top;
+    font-size: 0.93rem;
+  }
+
+  tbody tr {
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--global-accent-soft);
+    }
+  }
+
+  td:first-child {
+    white-space: nowrap;
+    color: var(--global-text-color-light);
+  }
+}
+
+// ---------- Passions (miscellaneous) -----------------------------------------
+
+.passions {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 2rem;
+    margin-bottom: 0.4rem;
+
+    &::before {
+      content: "\f06c"; // leaf icon
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0.3rem;
+      top: 0.45rem;
+      color: var(--global-theme-color);
+    }
+  }
+}
+
+// ---------- Footer -----------------------------------------------------------
+
+footer.fixed-bottom .container {
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .talks-table td:first-child { white-space: normal; }
+  .pub .pub-tag { float: none; display: inline-block; margin-bottom: 0.3rem; }
+}
+
+// Dark mode: dark text on the pale-mint highlight, softer card shadow
+html[data-theme='dark'] {
+  ::selection { color: #14181a; }
+  .pub:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }
+}
+
+// ---------- About page: card header ------------------------------------------
+
+.about-card {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 1.6rem 1.8rem;
+  margin: 1rem 0 2.2rem;
+  background: var(--global-accent-soft);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 14px;
+
+  .about-photo {
+    flex: 0 0 auto;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--global-bg-color), 0 0 0 6px var(--global-hover-color);
+
+    &.square { border-radius: 10px; }
+  }
+
+  .about-info { min-width: 0; }
+
+  .about-name {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 0.2rem;
+  }
+
+  .about-subtitle {
+    margin: 0;
+    color: var(--global-text-color-light);
+    font-size: 0.95rem;
+
+    a { color: var(--global-theme-color); }
+  }
+
+  .social {
+    margin-top: 0.8rem;
+
+    .contact-icons { justify-content: flex-start; }
+  }
+}
+
+@media (max-width: 576px) {
+  .about-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.4rem 1rem;
+
+    .social .contact-icons { justify-content: center; }
+  }
+}

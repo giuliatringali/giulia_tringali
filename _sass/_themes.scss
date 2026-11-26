@@ -1,65 +1,52 @@
 /*******************************************************************************
- * Themes
+ * Themes — forest / grass green
+ * Change the colours here to restyle the whole site.
  ******************************************************************************/
- 
+
 :root {
-  --global-bg-color: #{$white-color};
-  --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
-  --global-footer-link-color: #{$white-color};
-  --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0,0,0,.1);
-  --global-card-bg-color: #{$white-color};
+  --global-bg-color: #f7f9f3;          // pale meadow paper
+  --global-code-bg-color: rgba(46, 125, 50, 0.06);
+  --global-text-color: #1f2a20;        // deep bark
+  --global-text-color-light: #66755f;  // moss grey
+  --global-theme-color: #2e7d32;       // forest green
+  --global-hover-color: #4caf50;       // grass green
+  --global-accent-soft: rgba(76, 175, 80, 0.12);
+  --global-footer-bg-color: #1b3a24;   // pine
+  --global-footer-text-color: #cfe3cf;
+  --global-footer-link-color: #a5d6a7;
+  --global-divider-color: rgba(46, 125, 50, 0.18);
+  --global-card-bg-color: #ffffff;
 
   .fa-sun {
-    display : none;
+    display: none;
   }
   .fa-moon {
     padding-left: 10px;
     padding-top: 12px;
-    display : block;
-  }
-
-  .repo-img-light {
     display: block;
-  }
-  .repo-img-dark {
-    display: none;
   }
 }
 
 html[data-theme='dark'] {
-  --global-bg-color: #{$grey-color-dark};
-  --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color-light};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
-  --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
+  --global-bg-color: #14181a;          // charcoal with a hint of green
+  --global-code-bg-color: #1c2320;
+  --global-text-color: #e6ebe6;        // soft off-white
+  --global-text-color-light: #9aa69c;  // muted sage grey
+  --global-theme-color: #8fc79a;       // soft sage green
+  --global-hover-color: #b5dcbb;       // pale mint
+  --global-accent-soft: rgba(143, 199, 154, 0.08);
+  --global-footer-bg-color: #0f1213;
+  --global-footer-text-color: #9aa69c;
+  --global-footer-link-color: #b5dcbb;
+  --global-divider-color: rgba(230, 235, 230, 0.1);
+  --global-card-bg-color: #1b2022;
 
   .fa-sun {
     padding-left: 10px;
     padding-top: 12px;
-    display : block;
+    display: block;
   }
   .fa-moon {
-    display : none;
-  }
-
-  .repo-img-light {
     display: none;
-  }
-  .repo-img-dark {
-    display: block;
   }
 }

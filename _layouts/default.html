@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang }}">
-
-  <!-- Head -->
   <head>
-  {%- if page.redirect -%}
-    <meta http-equiv="refresh" content="3; url={{ site.baseurl }}/" />
-  {%- endif -%}
-  {% include head.html %}
+    {%- if page.nav_link %}
+    <meta http-equiv="refresh" content="0; url={{ page.nav_link | relative_url }}" />
+    {%- elsif page.redirect %}
+    <meta http-equiv="refresh" content="3; url={{ '/' | relative_url }}" />
+    {%- endif %}
+    {% include head.html %}
   </head>
 
-  <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  <body class="fixed-top-nav">
+    {% include header.html %}
 
-    <!-- Header -->
-    {%- include header.html %}
-
-    <!-- Content -->
     <div class="container mt-5">
       {{ content }}
     </div>
 
-    <!-- Footer -->
-    {%- include footer.html %}
+    {% include footer.html %}
 
-    <!-- JavaScripts -->
-    {% include scripts/jquery.html %}
-    {% include scripts/bootstrap.html %}
-    {% include scripts/masonry.html %}
-    {% include scripts/misc.html %}
-    {% include scripts/badges.html %}
-    {% include scripts/mathjax.html %}
-    {% include scripts/analytics.html %}
-    {% include scripts/progressBar.html %}
+    <!-- jQuery + Bootstrap: needed for the mobile menu -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@{{ site.jquery.version }}/dist/jquery.min.js" integrity="{{ site.jquery.integrity }}" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@{{ site.bootstrap.version }}/dist/js/bootstrap.bundle.min.js" integrity="{{ site.bootstrap.integrity.js }}" crossorigin="anonymous"></script>
+    <script src="{{ '/assets/js/dark_mode.js' | relative_url }}"></script>
   </body>
 </html>

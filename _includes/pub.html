@@ -1,0 +1,32 @@
+{%- comment -%}
+  One publication card. Use it in a page like this (only `title` is required):
+
+  {% include pub.html
+     title="Paper title"
+     authors="Giulia Tringali, Co-Author"
+     venue="Journal or 'Working paper', 2026"
+     tag="working paper"
+     abstract="Text shown when the Abstract button is clicked."
+     pdf="/assets/files/paper.pdf"
+     link="https://doi.org/..."
+     slides="/assets/files/slides.pdf"
+     code="https://github.com/..." %}
+{%- endcomment -%}
+<div class="pub">
+  {%- if include.tag %}<span class="pub-tag">{{ include.tag }}</span>{% endif %}
+  <div class="pub-title">{{ include.title }}</div>
+  {%- if include.authors %}<div class="pub-authors">{{ include.authors }}</div>{% endif %}
+  {%- if include.venue %}<div class="pub-venue">{{ include.venue }}</div>{% endif %}
+  <div class="pub-links">
+    {%- if include.abstract %}
+    <details>
+      <summary>Abstract</summary>
+      <div class="pub-abstract">{{ include.abstract }}</div>
+    </details>
+    {%- endif %}
+    {%- if include.pdf %}<a class="pub-btn" href="{{ include.pdf | relative_url }}" target="_blank" rel="noopener">PDF</a>{% endif %}
+    {%- if include.link %}<a class="pub-btn" href="{{ include.link }}" target="_blank" rel="noopener">Link</a>{% endif %}
+    {%- if include.slides %}<a class="pub-btn" href="{{ include.slides | relative_url }}" target="_blank" rel="noopener">Slides</a>{% endif %}
+    {%- if include.code %}<a class="pub-btn" href="{{ include.code }}" target="_blank" rel="noopener">Code</a>{% endif %}
+  </div>
+</div>

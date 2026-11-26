@@ -1,8 +1,10 @@
 ---
-layout: cv
+layout: default
+title: CV
 permalink: /cv/
-title: cv
 nav: true
-nav_order: 4
-cv_pdf: example_pdf.pdf
+nav_order: 5
+nav_link: /assets/files/MyCV.pdf # put your CV at assets/files/MyCV.pdf
 ---
+
+<p>Opening the CV… If nothing happens, <a href="{{ page.nav_link | relative_url }}">click here</a>.</p>
